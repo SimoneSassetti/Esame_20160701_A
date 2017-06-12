@@ -1,6 +1,7 @@
 package it.polito.tdp.formulaone;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.formulaone.model.Driver;
@@ -48,7 +49,16 @@ public class FormulaOneController {
 
     @FXML
     void doTrovaDreamTeam(ActionEvent event) {
-
+    	int k=0;
+    	try{
+    		k=Integer.parseInt(textInputK.getText());
+    	}catch(NumberFormatException e){
+    		txtResult.appendText("Inserire un numero intero per la grandezza del team.\n");
+    		return;
+    	}
+    	
+    	List<Driver> lista=model.getDreamteam(k);
+    	txtResult.appendText(lista.toString()+"\n");
     }
 
     @FXML
