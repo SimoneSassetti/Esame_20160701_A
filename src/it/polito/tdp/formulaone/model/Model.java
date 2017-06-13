@@ -64,7 +64,7 @@ public class Model {
 				peso+=grafo.getEdgeWeight(uscente);
 			}
 			for(DefaultWeightedEdge entrante: grafo.incomingEdgesOf(d)){
-				peso+=grafo.getEdgeWeight(entrante);
+				peso-=grafo.getEdgeWeight(entrante);
 			}
 			if(peso>max){
 				max=peso;
@@ -108,6 +108,9 @@ public class Model {
 				teamMin=new ArrayList<>(team);//creo un nuova lista partendo da una lista attuale
 				System.out.println(tassoMin+" "+team.toString());
 			}
+			//return; POSSO METTERE UN RETURN INVECE DI UN IF ELSE GENERALMENTE
+			//I DUE MODO SONO (FORSE) LOGICAMENTE IDENTICI
+			
 		}else{
 			//caso normale
 			Set<Driver> candidati=new HashSet<>(grafo.vertexSet());
